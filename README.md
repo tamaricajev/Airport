@@ -1,4 +1,4 @@
-# IS
+# Aerodrom
 
 **Grupni projekat u okviru kursa Informacioni sistemi na master studijama [Matematičkog fakulteta, Univerziteta u Beogradu](http://www.matf.bg.ac.rs/).**
 
