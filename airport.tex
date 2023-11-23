@@ -76,16 +76,6 @@
     \item Контролор лета - задужен за праћење и навигирање авиона.
 \end{itemize}
 
-На наредној слици је приказан дијаграм контекста који описује све актере система.
-
-\begin{figure}[H]
-    \begin{center}
-        \includegraphics[width=1.1\textwidth, height=12cm]{Dijagrami_slike/dijagram_konteksta.png}
-       \caption{Дијаграм контекста}
-    \end{center}
-\end{figure}
-
-
 \subsection{Коришћени дијаграми и алати}
 Током израде рада коришћени су следећи дијаграми:
 \begin{itemize}
@@ -104,8 +94,25 @@
 
 За израду свих UML дијаграма, као 
 %и ER и 
-и BPMN и DFD дијаграма коришћен је алат \textit{Visual Paradigm - Online/Community Edition} \cite{vs}.\\\\
+и BPMN и DFD дијаграма коришћен је алат \textit{Visual Paradigm - Online/Community Edition} \cite{vp}.\\\\
 % За израду скица корисночног интерфејса коришћен је алат $Diagrams.net$.
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=1.1\textwidth, height=12cm]{Dijagrami_slike/dijagram_konteksta.png}
+        \caption{Дијаграм контекста}
+    \end{center}
+\end{figure}
+
+\newpage 
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=1.1\textwidth, height=18cm]{Dijagrami_slike/dijagram_nivoa_0.jpg}
+        \caption{Дијаграм нивоа 0}
+    \end{center}
+\end{figure}
+
 
 \section{Процеси и случајеви употребе}
 
@@ -139,8 +146,10 @@
         \end{enumerate}
     
     \item \textbf{Алтернативни токови:}
-    \item А1. \textbf{Администратор одустаје од уноса података.} Ако у кораку 4 администратор кликне на дугме одустани подаци се не шаљу систему и неће бити унети у исти.
-    \item A2. \textbf{Унети подаци о раднику нису исправни.} Ако у кораку 5 систем препозна да су неки од унетих података невалидни, избациће грешку и обавестити администратора које поље је невалидно. Администратор исправља грешку и наставља даље од 4. корака главног тока. 
+        \begin{itemize}
+            \item[А1.] \textbf{Администратор одустаје од уноса података.} Ако у кораку 4 администратор кликне на дугме одустани подаци се не шаљу систему и неће бити унети у исти.
+            \item[A2.] \textbf{Унети подаци о раднику нису исправни.} Ако у кораку 5 систем препозна да су неки од унетих података невалидни, избациће грешку и обавестити администратора које поље је невалидно. Администратор исправља грешку и наставља даље од 4. корака главног тока. 
+        \end{itemize}
 \end{itemize}
 
 \begin{figure}[H]
@@ -375,7 +384,7 @@
 \begin{figure}[H]
     \centering
     \includegraphics[width=1.1\textwidth, height=12cm]{Dijagrami_slike/cekiranje_putnika.jpg}
-    \caption{Дијаграм случаја употребе - Чекирање путника на лет}
+    \caption{Дијаграм активности - Чекирање путника на лет}
 \end{figure}
 
 \newpage
@@ -408,7 +417,7 @@
 \begin{figure}[H]
     \centering
     \includegraphics[width=1.1\textwidth, height=12cm]{Dijagrami_slike/cekiranje_zaposlenih.jpg}
-    \caption{Дијаграм случаја употребе - Чекирање запослених на лет}
+    \caption{Дијаграм активности - Чекирање запослених на лет}
 \end{figure}
 
 \begin{figure}[H]
@@ -465,6 +474,7 @@
     \end{center}
 \end{figure}
 
+\newpage
 \subsection{Одржавање авиона}
 
 \begin{itemize}
