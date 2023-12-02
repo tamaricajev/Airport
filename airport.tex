@@ -15,7 +15,7 @@
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
 
 \usepackage{hyperref}
-\hypersetup{colorlinks,linkcolor={black},citecolor={blue},urlcolor={blue}}  
+\hypersetup{colorlinks,linkcolor={blue},citecolor={blue},urlcolor={blue}}  
 
 \title{\textbf{ИНФОРМАЦИОНИ СИСТЕМИ} \\
 \vspace{10}
@@ -330,7 +330,7 @@
             \item \textit{Администратор}
             \item \textit{Контролор лета}
         \end{itemize}
-    \item \textbf{Предуслови:} Администратор пруступа системз и има информације о шифрама авиона који лете тог дана у вадушном простору, који покрива контролни торањ или који полећу са писте. Контролор лета има комуникацију са администратором. 
+    \item \textbf{Предуслови:} Администратор пруступа систему и има информације о шифрама авиона који лете тог дана у вадушном простору, који покрива контролни торањ или који полећу са писте. Контролор лета има комуникацију са администратором. 
     \item \textbf{Постуслови:} Контролор лета успешно комуницира са пилотима авиона и успешно их навигира и контролише.
     \item \textbf{Основни ток:}
         \begin{enumerate}
@@ -471,7 +471,7 @@
 \begin{figure}[H]
     \begin{center}
         \includegraphics[width=1.1\textwidth, height=12cm]{Dijagrami_slike/popravka_aviona.jpg}
-        \caption{Дијаграм случаја употребе - Поправка авиона}
+        \caption{Дијаграм активности - Поправка авиона}
     \end{center}
 \end{figure}
 
@@ -519,6 +519,182 @@
 \end{figure}
 
 \section{База података}
+На основу дефинисаних случајева употребе, примећене су следеће групе података, које би требало 
+сместити у базу:
+
+\begin{itemize}
+    \item Запослени
+        \begin{itemize}
+            \item Администратор;
+            \item Контролор лета;
+            \item Службеник;
+            \item Авио-механичар.
+        \end{itemize}
+    \item Путник
+    \item Авион
+    \item Aвио-компанија
+    \item Пилот
+    \item Делови за авион
+\end{itemize}
+
+\subsection{Подаци о запосленима}
+
+Класа \textit{Запослени} представља запослене особе у нашем информационом систему. Из ове класе, специјализацијом добијамо 4 нова типа ентитета: администратор, контролор лета, службеник, авио-механичар.
+
+\vspace{20}
+\hspace{-18}
+Атрибути:
+\begin{itemize}
+    \item \textbf{ID\_zaposlenog}
+    \item ime
+    \item prezime
+    \item datum\_zaposlenja
+    \item JMBG
+    \item email
+    \item broj\_telefona
+    \item plata\_RSD
+\end{itemize}
+
+\\
+\vspace{20}
+\subsubsection{
+\textbf{\large Администратор}}
+\vspace{0.3cm}
+
+Класа \textit{Администратор} представља запосленог на аеродорому и његова улога је одржавање базе 
+података аеродрома, комуникација са авио-компанијом (резервација писте, обрада захтева за 
+одржавање авиона), комуникација са контролорима лета, уношење/брисање радника и авио-компанија у 
+систем.
+
+\\
+\vspace{20}
+\hspace{-16}
+Атрибути:
+\begin{itemize}
+    \item sektor :: Sektor - представља област у којој администратор обавља посао.
+\end{itemize}
+
+\vspace{10}
+\hspace{-18}
+Сектор је енумерациони тип. \\
+Вредности: 
+\begin{itemize}
+    \item REZERVACIJA\_PISTE
+    \item UNOŠENJE/BRISANJE\_AVIO-KOMPANIJE
+    \item UNOŠENJE/BRISANJE\_ZAPOSLENIH
+    \item POPRAVKE/ODRŽAVANJE\_AVIONA
+    \item KOMUNIKACIJA\_KONTROLA\_LETA
+\end{itemize}
+
+\subsubsection{
+\textbf{\large Контролор лета}}
+\vspace{0.3cm}
+Контролор лета је задужен за праћење и навигирање авиона. Он ступа у комуникацију са пилотом 
+авиона и навигира га где треба да иде и којом брзином треба да се креће. Такође задужен је за 
+одобравање слетања или полетања авиона. 
+
+\subsubsection{
+\textbf{\large Службеник}}
+\vspace{0.3cm}
+Службеник представља запосленог на аеродрому и његова улога је комуникација са људима који треба да се укрцају у авион. Његов посао је да провери да ли се ти људи налазе на лету авио-компаније и у складу са тим ступа у контакт са авио-компанијом.
+
+\subsubsection{
+\textbf{\large Авио-механичар}}
+\vspace{0.3cm}
+Авио-механичар је задужен за поправку, проверу и одржавање авиона. Он ступа у комуникацију са администратором у вези поправке или одржавања авиона које је затражила авио-компанија. Он је такође задужен и за захтевање потребних делова за поправку од администратора.
+
+\newpage
+\subsection{Подаци о путницима}
+
+Класа \textit{Путник} представља путнике у нашем информационом систему. \\
+
+Атрибути:
+\begin{itemize}
+    \item \textbf{broj\_pasosa}
+    \item ime
+    \item prezime
+    \item JMBG
+    \item broj\_telefona
+    \item email
+    \item adresa\_stanovanja
+\end{itemize}
+
+\subsection{Подаци о авиону}
+
+Атрибути:
+\begin{itemize}
+    \item \textbf{oznaka}
+    \item tip\_aviona::Tip\_aviona - представља тип авиона
+    \item broj\_sedista
+    \item zapremina\_rezervoara
+    \item vrsta::Vrsta - представља врсту авиона
+\end{itemize}
+
+\vspace{10}
+Врста је енумерациони тип. 
+Вредности: 
+\begin{itemize}
+    \item PUTNICKI
+    \item TERETNI
+    \item DHL
+\end{itemize}
+
+\vspace{10}
+Тип је енумерациони тип. 
+Вредности: 
+\begin{itemize}
+    \item BOING
+    \item AIRBUS
+    \item ATR
+    \item CARGO
+\end{itemize}
+
+\subsection{Подаци о авио-компанији}
+
+\vspace{10}
+Атрибути:
+\begin{itemize}
+    \item \textbf{id\_avio\_kompanije}
+    \item ime
+    \item broj\_zaposlenih
+    \item vat
+    \item adresa\_kompanije
+    \item email\_kompanije
+    \item kontakt
+    \item vreme\_rezervacije
+\end{itemize}
+
+\subsection{Подаци о пилоту}
+
+\vspace{10}
+Атрибути:
+\begin{itemize}
+    \item \textbf{broj\_pasoša}
+    \item ime
+    \item prezime
+    \item avio\_kompanija (u kojoj je zaposlen)
+    \item broj\_telefona
+\end{itemize}
+
+
+\subsection{Подаци о деловима за авион}
+
+\vspace{10}
+Атрибути:
+\begin{itemize}
+    \item \textbf{šifra\_dela}
+    \item naziv
+    \item količina\_za\_poručivanje
+    \item stanje
+    \item tip\_aviona
+\end{itemize}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=1.1\textwidth, height=15cm]{Dijagrami_slike/dijagram_klasa_podataka.jpg}
+        \caption{Дијаграм класа података}
+    \end{center}
+\end{figure}
 
 \section{Софтверска архитектура}
 
