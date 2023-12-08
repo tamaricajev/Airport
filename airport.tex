@@ -717,13 +717,20 @@
         \begin{itemize}
             \item Праћење лета - омогућава контролеру праћење авиона
         \end{itemize}
-    \item \textbf{Авио-механичар} - представља запосленог на аеродрому и омогућава му рад на авионима уз помоћ нареднe компоненте:
+    \item \textbf{Авио механичар} - представља запосленог на аеродрому и омогућава му рад на авионима уз помоћ нареднe компоненте:
         \begin{itemize}
             \item Поправка/одржавање авиона - омогућава авио-механичару да одржава и поправља авионе
         \end{itemize}
 \end{enumerate}
 
 Комуникација са базом података је омогућена помоћу интерфејса за комуникацију са базом података (JDBC).
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=1.1\textwidth, height=11cm]{Dijagrami_slike/predlog_arhitekture.jpg}
+        \caption{Предлог архитектуре}
+    \end{center}
+\end{figure}
 
 \begin{figure}[H]
     \begin{center}
@@ -737,7 +744,7 @@
         \item Администратор - имплементирано у оквиру артифакта \textit{Adminstrator.jar}
         \item Службеник - имплементирано у оквиру артифакта \textit{Sluzbenik.jar}
         \item Контролер лета - имплементирано у оквиру артифакта \textit{Kontrolor\_leta.jar}
-        \item Авио-механичар - имплементирано у оквиру артифакта \textit{Avio\_mehanicar.jar}
+        \item Авио механичар - имплементирано у оквиру артифакта \textit{Avio\_mehanicar.jar}
     \end{itemize}
 
 За конфигурисање апликације коришћен је фајл \textit{web\_config.xml}. На серверу базе података се налази сама база.
